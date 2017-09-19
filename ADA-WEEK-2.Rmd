@@ -1,47 +1,30 @@
 ---
 title: "ADA-WEEK-2"
 output: html_document
+author: Arora
 ---
+#WEEK 4 Challanges
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
-WEEK 4
-
-v1 <- c("Stately", ",", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead", ",", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed", ".")
-v1<-Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed.”
-v1
+#Challenge #1
+```{r}
+v1 <- c("Stately" , "," , "plump" , "Buck" , "Mulligan" , "came" , "from" , "the" , "stairhead" , "," , "bearing" , "a" , "bowl" , "of" , "lather" , "on" , "which" , "a" , "mirror" , "and" , "a" , "razor" , "lay" , "crossed" , ".")
 require(stringr)
 v2<-str_split(v1,"_")
 v2
-#This splits up v2 into 25 elements#
+```
+#####This splits up v2 into 25 elements
+```{r}
 unlist(v2)
-#takes the list made from string split and makes into a list#
+```
+###takes the list made from string split and makes into a list#
+```{r}
 gsub("[[:punct:]]","",v2)
 #this removes the punctuation
 v2[seq(from=1,to=22,by=3)]
+```
 
+#Challenge #2
+```{r}
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
 m
 x<-m[,c(2,3,6)]
@@ -50,7 +33,11 @@ x<-m[c(6,7,8),]
 x
 x<-m[c(2:6),c(2:9)]
 x
+```
 
+#####In the above challenge a matrix m was created and then different portions of that matrix are pulled out. 
+
+```{r}
 a<-array(data=400:1,dim=c(5,5,4,4))
 #If the dim=c portion is not in, the array will only go assending even if it is set up from 400 to 1#
 a
@@ -58,8 +45,11 @@ a
 a[1, 1, 1, 2]
 a[2, 3, 2, ]
 a[1:5, 1:5, 3, 3]
+```
 
+#####In the above challenge, an array a was created again specific portions of the array are selected. 
 
+```{r}
 Platyrrhini<-list("Cebidae", "Atelidae", "Pitheciidae")
 Platyrrhini
 
@@ -94,17 +84,24 @@ Primates<-list(Haplorhini,Strepsirhini)
 Primates
 names(Primates)<-list("Haplorhini", "Strepsirhini")
 Primates
+```
 
+#####Above is the creation of a series of nested lists. To do this the smallest elements are placed into the second smallest element as a list and then the second smallest element are listed in the third element. However the second smallest element needs to be named and so the names() is used to do that. 
 
+```{r}
 g<-matrix(data=c(3,0,1,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2), nrow=5, ncol=3, byrow=TRUE)
 g
 g<-as.data.frame(g)
 g
 g[,2]<-as.logical(g[,2])
-#dont' use v2 as the name of the column, use 2#
+```
+
+#####dont' use v2 as the name of the column, use 2#
+
+```{r}
 g
 g[,3]<-as.factor(g[,3])
 g
 str(g)
-
-
+```
+#####Above a matrix g was created, which was turned into dataframe and finally the data types were changed. 
